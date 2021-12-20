@@ -28,3 +28,9 @@ Some thoughts:
 - Does this architecture implies the backend stores the passwords as hashes?
 - SECURITY CONCERN: the user/webclient still needs to send the actual password as string before hashing during sign-up/registration
 - EXTENSION: Is there anyway we can do passport.js with web3? ([BIP 39 seedphrase](https://github.com/bitcoinjs/bip39))
+
+## Backend: Learning MongoDB (with SQL background)
+
+- Dirty comparison between SQL to MongoDB [here](https://docs.mongodb.com/manual/reference/sql-comparison/)
+
+-

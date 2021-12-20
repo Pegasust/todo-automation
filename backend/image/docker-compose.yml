@@ -1,2 +1,30 @@
 ---
-# This file spans the whole todo service
+# This file spans the whole todo service (dev mode)
+version: "3.7"
+services:
+  controller:
+    image: node:current-alpine3.12
+    restart: always
+    ports:
+      - 8088:${PORT}
+    command: sh -c "npm install && npm dev-start"
+    working_dir: ${WORKDIR}
+    volumes:
+      - ${WORKDIR}:/app
+    environment:
+      PORT: 8000
+      WORKDIR: "../../../todo-main/backend"
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: root-dev
+      MONGO_URL: mongodb://root@mongo:27017
+
+  mongoDB:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INIT_DB_ROOT_PASSWORD: root-dev
+    volumes:
+      - todo-mongo:/data/db
+volumes:
+  todo-mongo:
